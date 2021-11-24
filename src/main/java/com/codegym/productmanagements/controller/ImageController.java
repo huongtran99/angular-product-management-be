@@ -2,6 +2,7 @@ package com.codegym.productmanagements.controller;
 
 import com.codegym.productmanagements.model.Image;
 import com.codegym.productmanagements.model.ImageForm;
+import com.codegym.productmanagements.model.Product;
 import com.codegym.productmanagements.service.Image.IImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,6 +43,7 @@ public class ImageController {
             }
             Image image = new Image();
             image.setFileName(fileName);
+            image.setProduct(imageForm.getProduct());
             imageService.save(image);
         }
         return new ResponseEntity<>(HttpStatus.OK);

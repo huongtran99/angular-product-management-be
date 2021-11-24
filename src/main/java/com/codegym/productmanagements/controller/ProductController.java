@@ -18,14 +18,6 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-/*    @GetMapping("/noPage")
-    public ResponseEntity<Iterable<Product>> findAllNoPage(@RequestParam("q") Optional<String> search) {
-        if(search.isPresent()) {
-            return new ResponseEntity<>(productService.findProductByNameContaining(search.get()), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(productService.findAll(), HttpStatus.OK);
-    }*/
-
     @GetMapping
     public ResponseEntity<Iterable<Product>> findAll(@RequestParam("q") Optional<String> search, @PageableDefault(size = 3) Pageable pageable) {
         if(search.isPresent()) {
